@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom scrollbar ─────────────────────────────────────── */
+:root {
+  --scrollbar-track: #12141f;
+  --scrollbar-thumb: #2a2f4a;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d4468;
+}
+
+/* ── Selection ────────────────────────────────────────────── */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #f1f3ff;
+}
+
+/* ── Focus ring ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* ── Thinking dot animation (staggered) ──────────────────── */
+@keyframes thinkingDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%           { transform: scale(1);   opacity: 1;   }
+}
+
+.thinking-dot:nth-child(1) { animation: thinkingDot 1.4s ease-in-out infinite 0s;    }
+.thinking-dot:nth-child(2) { animation: thinkingDot 1.4s ease-in-out infinite 0.2s;  }
+.thinking-dot:nth-child(3) { animation: thinkingDot 1.4s ease-in-out infinite 0.4s;  }
+
+/* ── Shimmer loading effect ───────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #1a1d2e 25%,
+    #21253a 50%,
+    #1a1d2e 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* ── Fade + slide animations ─────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+.animate-fade-in       { animation: fadeIn    0.4s ease-out forwards; }
+.animate-slide-up      { animation: slideUp   0.45s ease-out forwards; }
+.animate-slide-in-right{ animation: slideInRight 0.4s ease-out forwards; }
+
+/* Delay utilities */
+.delay-100 { animation-delay: 0.1s; opacity: 0; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; }
+.delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+/* ── Grid background ──────────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glow effects ────────────────────────────────────────── */
+.glow-accent {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+}
+
+.glow-success {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* ── Gradient text ───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #818CF8 0%, #6366F1 50%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Step connector line ─────────────────────────────────── */
+.step-line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(to bottom, #3D4468, transparent);
+}
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.light-theme-active {
+  --canvas: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+}
+
+.light-theme-active .bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+
+/* ── 2026 Premium Creative UI Enhancements ──────────────── */
+
+/* Mesh Gradient Orbs Animation */
+@keyframes floatOrbOne {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes floatOrbTwo {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.15); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-orb-one {
+  animation: floatOrbOne 16s ease-in-out infinite;
+}
+
+.animate-orb-two {
+  animation: floatOrbTwo 20s ease-in-out infinite;
+}
+
+/* Concentric Neural Core Rotations */
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes breathingAura {
+  0%, 100% { opacity: 0.15; transform: scale(1) translate(-50%, -50%); }
+  50% { opacity: 0.35; transform: scale(1.2) translate(-50%, -50%); }
+}
+
+.animate-spin-slow {
+  animation: rotateClockwise 24s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: rotateCounterClockwise 30s linear infinite;
+}
+
+.animate-breathing-aura {
+  animation: breathingAura 6s ease-in-out infinite;
+}
+
+/* Glassmorphism Textures */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 15px rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Premium text input glow */
+.premium-input-focus {
+  transition: all 0.3s ease;
+}
+.premium-input-focus:focus {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+/* ── Elite card styles ──────────────────────────────────── */
+.card-elite {
+  background: linear-gradient(to bottom, rgba(15,23,42,0.7), rgba(2,6,23,0.9));
+  border: 1px solid rgba(51,65,85,0.6);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.card-elite:hover {
+  border-color: rgba(99,102,241,0.3);
+  box-shadow: 0 0 24px rgba(99,102,241,0.08);
+}
+
+/* Section top-rule glow */
+.section-rule {
+  position: relative;
+}
+.section-rule::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, rgba(139,92,246,0.3), transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* Scan-line shimmer on pipeline cards */
+@keyframes scanLine {
+  0%   { top: -2px; opacity: 0; }
+  10%  { opacity: 0.4; }
+  90%  { opacity: 0.4; }
+  100% { top: 102%; opacity: 0; }
+}
+.scan-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(99,102,241,0.5), transparent);
+  animation: scanLine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Header glass sticky */
+.header-glass {
+  background: rgba(2,6,23,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30,41,59,0.8);
+}
+
+/* Glow dot pulse (stronger) */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 4px currentColor; }
+  50%       { box-shadow: 0 0 12px currentColor; }
+}
+.glow-dot { animation: glowPulse 2s ease-in-out infinite; }
+
+/* Smooth number transition */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-count { animation: countUp 0.35s ease-out forwards; }
+
+/* Gentle nudge bounce — prompts users to click functional buttons */
+@keyframes nudgeBounce {
+  0%, 100% { transform: translateY(0); }
+  30%       { transform: translateY(-4px); }
+  60%       { transform: translateY(-2px); }
+  80%       { transform: translateY(-3px); }
+}
+.btn-nudge {
+  animation: nudgeBounce 2.4s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+.btn-nudge:hover,
+.btn-nudge:focus,
+.btn-nudge:active,
+.btn-nudge:disabled {
+  animation: none;
+}
+
